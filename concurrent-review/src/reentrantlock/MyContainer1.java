@@ -6,10 +6,12 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * åº”ç”¨èƒŒæ™¯ï¼š
- * ç¼–å†™å›ºå®šå®¹é‡(è‡ªå®šä¹‰)å®¹å™¨, 2ä¸ªç”Ÿäº§è€…çº¿ç¨‹/10ä¸ªæ¶ˆè´¹è€…çº¿ç¨‹ã€‚
+ * Ó¦ÓÃ±³¾°£º
+ * ±àĞ´¹Ì¶¨ÈİÁ¿(×Ô¶¨Òå)ÈİÆ÷, 2¸öÉú²úÕßÏß³Ì/10¸öÏû·ÑÕßÏß³Ì¡£
  * count, put(), get()
  *
+ *ÊµÏÖ
+ *  ReentrantLock + Condition(¿É»½ĞÑÖ¸¶¨µÄÏß³Ì)
  */
 public class MyContainer1<T> {
 	
@@ -65,8 +67,8 @@ public class MyContainer1<T> {
 		for(int i = 0; i < 2; i++) {
 			new Thread(()->{
 				for(int j = 0; j < 25; j++) {
-					container.put(Thread.currentThread().getName() + "äº§å“" + j);
-					System.out.println(Thread.currentThread().getName() + "ç”Ÿäº§äº†1ä¸ªå…ƒç´ ");
+					container.put(Thread.currentThread().getName() + "²úÆ·" + j);
+					System.out.println(Thread.currentThread().getName() + "Éú²úÁË1¸öÔªËØ");
 				}
 			}, "producer" + i ).start();
 		}
@@ -75,7 +77,7 @@ public class MyContainer1<T> {
 			new Thread(()->{
 				for(int j = 0; j < 5; j++) {
 					String str = container.get();
-					System.out.println(Thread.currentThread().getName() + "æ¶ˆè´¹äº†" +str);
+					System.out.println(Thread.currentThread().getName() + "Ïû·ÑÁË" +str);
 				}
 			}, "consumer" + i).start();
 		}

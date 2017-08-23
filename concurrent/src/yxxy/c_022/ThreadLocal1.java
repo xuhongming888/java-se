@@ -1,7 +1,7 @@
 /**
- * ThreadLocal线程局部变量
+ * ThreadLocal锟竭程局诧拷锟斤拷锟斤拷
  * 
- * @author 马士兵
+ * @author 锟斤拷士锟斤拷
  */
 package yxxy.c_022;
 
@@ -18,7 +18,6 @@ public class ThreadLocal1 {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			
 			System.out.println(p.name);
 		}).start();
 		

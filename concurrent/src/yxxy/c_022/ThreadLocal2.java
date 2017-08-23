@@ -34,7 +34,7 @@ public class ThreadLocal2 {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			tl.set(new Person());
+			tl.set(new Person());     //在本线程, 实例化了1个person对象
 			System.out.println("t2线程" + tl.get());
 		}).start(); 
 	}
