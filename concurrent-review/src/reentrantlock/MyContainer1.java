@@ -19,6 +19,8 @@ public class MyContainer1<T> {
 	private int count = 0;
 	private List<T> list = new LinkedList<>();
 	
+	private Object o;
+	
 	private ReentrantLock lock = new ReentrantLock();
 	private Condition producer = lock.newCondition();
 	private Condition consumer = lock.newCondition();
